@@ -1,4 +1,5 @@
-﻿using EHOME.TeamInterface;
+﻿using EHOME.DTO;
+using EHOME.TeamInterface;
 using EHOME.TeamService;
 using System;
 using System.Collections.Generic;
@@ -33,5 +34,28 @@ namespace EHOME.Controllers
 
             return View();
         }
+        public ActionResult Details(int? id)
+        {
+            ViewBag.Message = "成员信息";
+            TeamMemberDTO dto = new TeamMemberDTO();
+            if (id != null)
+                dto = _team.GetMemberById((int)id);
+            return View(dto);
+        }
+
+        [HttpGet]
+        public ActionResult AddMember() 
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddMember(TeamMemberDTO dto)
+        {
+
+            _team.UpdateMember(dto);
+
+            return RedirectToAction("Index"); ;
+        }
+
     }
 }

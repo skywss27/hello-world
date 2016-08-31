@@ -1,4 +1,5 @@
-﻿using EHOME.Models;
+﻿using EHOME.DTO;
+using EHOME.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace EHOME.TeamInterface
 {
     public interface ITeamMember
     {
-        List<TeamMember> GetAllMembers();
-        TeamMember GetMemberById(int id);
+        List<TeamMemberDTO> GetAllMembers();
+        TeamMemberDTO GetMemberById(int id);
 
-        int UpdateMember(TeamMember m);
+        int UpdateMember(TeamMemberDTO m);
     }
 }
