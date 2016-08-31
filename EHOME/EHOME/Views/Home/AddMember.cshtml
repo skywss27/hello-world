@@ -1,0 +1,56 @@
+﻿@model EHOME.DTO.TeamMemberDTO
+
+@{
+    ViewBag.Title = "添加小组成员";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("AddMember", "Home", FormMethod.Post, new { name = "myForm", id = "addMember" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.MemberNum, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MemberNum, new { htmlAttributes = new { @class = "form-control" ,id ="memberId"} })
+                @Html.ValidationMessageFor(model => model.MemberNum, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.MemberName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MemberName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MemberName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Create" class="btn btn-default" id="addMemberButton" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script type="text/javascript">
+    $("#addMemberButton").click(function ()
+    {
+        if ($("#memberId").val() == "1")
+            alert("你输入的员工编号已存在 请重新输入")
+        else
+            $("#addMember").submit();
+    });
+ </script>

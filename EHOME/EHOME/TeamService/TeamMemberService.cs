@@ -1,4 +1,5 @@
-﻿using EHOME.Models;
+﻿using EHOME.DTO;
+using EHOME.Models;
 using EHOME.TeamBC;
 using EHOME.TeamInterface;
 using System;
@@ -15,17 +16,17 @@ namespace EHOME.TeamService
         {
             teamMemberBC = new TeamMemberBC();
         }
-        public List<TeamMember> GetAllMembers()
+        public List<TeamMemberDTO> GetAllMembers()
         {
            return teamMemberBC.GetAllMembers();
         }
 
-        public TeamMember GetMemberById(int id)
+        public TeamMemberDTO GetMemberById(int id)
         {
             return teamMemberBC.GetMemberById(id);
         }
 
-        public int UpdateMember(TeamMember m)
+        public int UpdateMember(TeamMemberDTO m)
         {
             return teamMemberBC.UpdateMember(m);
         }

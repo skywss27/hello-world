@@ -1,0 +1,48 @@
+﻿@model EHOME.DTO.TeamMemberDTO
+
+@{
+    ViewBag.Title = "详细信息";
+}
+
+
+<div class="jumbotron">
+    <h1>小组成员 个人信息</h1>
+</div>
+<dl class="dl-horizontal">
+    
+    <dt>
+        员工头像
+    </dt>
+    <dd>
+        <img src="../../@Model.HeaderImage" alt="嘿嘿"/>
+    </dd>
+    <dt>
+        员工编号
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.MemberNum)
+    </dd>
+    <dt>
+        员工姓名
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.MemberName)
+    </dd>
+    <dt>
+       性别
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Sex)
+    </dd>
+    <dt>
+        入职日期
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.EntryDate)
+    </dd>
+</dl>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+
+</p>

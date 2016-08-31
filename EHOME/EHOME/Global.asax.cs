@@ -41,7 +41,7 @@ namespace EHOME
             Mapper.Initialize(cfg=>{
                 cfg.CreateMap<TeamMemberDTO, TeamMember>();
                 cfg.CreateMap<TeamMember, TeamMemberDTO>();
-                
+                //cfg.CreateMap<List<TeamMember>, List<TeamMemberDTO>();
             });
         }
 
