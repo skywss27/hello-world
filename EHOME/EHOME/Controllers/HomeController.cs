@@ -10,10 +10,14 @@ namespace EHOME.Controllers
 {
     public class HomeController : Controller
     {
-        private ITeamMember team = new TeamMemberService();
+        private ITeamMember _team ;
+        public HomeController(ITeamMember team) 
+        {
+            _team = team;
+        }
         public ActionResult Index()
         {
-            return View(team.GetAllMembers());
+            return View(_team.GetAllMembers());
         }
 
         public ActionResult About()

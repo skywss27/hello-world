@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EHOME.TeamInterface
 {
-    public interface ITeamMember 
+    public interface ITeamMember
     {
         List<TeamMember> GetAllMembers();
         TeamMember GetMemberById(int id);
